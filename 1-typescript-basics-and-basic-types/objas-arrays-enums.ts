@@ -21,26 +21,26 @@ enum Role {
 }
 
 const person = {
-  name: "Harold",
+  name: 'Harold',
   age: 30,
-  hobbies: ["Sports", "Cooking"],
+  hobbies: ['Sports', 'Cooking'],
   role: Role.ADMIN,
-};
+}
 
 // person.role.push('admin')
 // person.role[1] = 10
 
 // person.role = [0, 'admin', 'user']
 
-let favouriteActivities: string[];
-favouriteActivities = ["sports"];
+let favouriteActivities: string[]
+favouriteActivities = ['sports']
 
-console.log(person.name);
+console.log(person.name)
 
 for (const hobby of person.hobbies) {
-  console.log(hobby.toUpperCase());
+  console.log(hobby.toUpperCase())
 }
 
 if (person.role === Role.AUTHOR) {
-  console.log("is author");
+  console.log('is author')
 }
