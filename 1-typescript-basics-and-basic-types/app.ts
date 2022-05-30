@@ -1,19 +1,33 @@
-const add = (n1: number, n2: number, showResult: boolean, phrase: string) => {
-  // if (typeof n1 !== 'number' || typeof n2 !== 'number') {
-  //   throw new Error('Incorrect input')
-  // }
-  
-  const result = n1 + n2
-  if (showResult) {
-    console.log(phrase + result)
+type Combinable = number | string
+type ConversionDescriptor = 'as-number' | 'as-text'
+
+const combine = (
+  input1: Combinable,
+  input2: Combinable,
+  resultConversion: ConversionDescriptor
+) => {
+  let result: Combinable;
+
+  if (typeof input1 === "number" && typeof input2 === "number" || resultConversion === "as-number") {
+    result = +input1 + +input2;
   } else {
-    return  n1 + n2
+    result = input1.toString() + input2.toString();
   }
-}
 
-const number1 = 5
-const number2 = 2.8
-const printResult = true
-const resultPhrase = 'Result is: '
+  // if (resultConversion === 'as-number') {
+  //   return +result
+  // } else {
+  //   return result.toString()
+  // }
 
-const result = add(number1, number2, printResult, resultPhrase)
+  return result
+};
+
+const combinedAges = combine(30, 26, "as-number");
+console.log(combinedAges);
+
+const combinedStringAges = combine('30', '26', "as-number");
+console.log(combinedStringAges);
+
+const combinedNames = combine("Harold", "Siri", "as-text");
+console.log(combinedNames);

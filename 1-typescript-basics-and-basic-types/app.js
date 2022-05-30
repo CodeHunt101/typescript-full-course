@@ -1,17 +1,21 @@
-var add = function (n1, n2, showResult, phrase) {
-    // if (typeof n1 !== 'number' || typeof n2 !== 'number') {
-    //   throw new Error('Incorrect input')
-    // }
-    var result = n1 + n2;
-    if (showResult) {
-        console.log(phrase + result);
+var combine = function (input1, input2, resultConversion) {
+    var result;
+    if (typeof input1 === "number" && typeof input2 === "number" || resultConversion === "as-number") {
+        result = +input1 + +input2;
     }
     else {
-        return n1 + n2;
+        result = input1.toString() + input2.toString();
     }
+    // if (resultConversion === 'as-number') {
+    //   return +result
+    // } else {
+    //   return result.toString()
+    // }
+    return result;
 };
-var number1 = 5;
-var number2 = 2.8;
-var printResult = true;
-var resultPhrase = 'Result is: ';
-var result = add(number1, number2, printResult, resultPhrase);
+var combinedAges = combine(30, 26, "as-number");
+console.log(combinedAges);
+var combinedStringAges = combine('30', '26', "as-number");
+console.log(combinedStringAges);
+var combinedNames = combine("Harold", "Siri", "as-text");
+console.log(combinedNames);
